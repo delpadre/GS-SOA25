@@ -18,7 +18,7 @@ public class UsuarioDTO {
     private String areaAtuacao;
 
     @NotBlank(message = "O nível de carreira é obrigatório.")
-    private String nivelCarreira; // Ex: Junior, Pleno, Senior, Em transição
+    private String nivelCarreira;
 
     public UsuarioDTO() {}
 
