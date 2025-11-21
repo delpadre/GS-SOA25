@@ -18,7 +18,7 @@ public class Trilha {
     private String descricao;
 
     @Column(nullable = false, length = 50)
-    private String nivel; // use strings that match Nivel enum
+    private String nivel;
 
     @Column(name = "carga_horaria", nullable = false)
     private Integer cargaHoraria;
