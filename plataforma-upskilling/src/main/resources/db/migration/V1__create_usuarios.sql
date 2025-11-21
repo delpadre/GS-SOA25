@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    area_atuacao VARCHAR(100),
+    nivel_carreira VARCHAR(50),
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

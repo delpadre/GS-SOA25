@@ -1,0 +1,30 @@
+package com.example.upskilling.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+public class CompetenciaDTO {
+
+    private Long id;
+
+    @NotBlank(message = "O nome da competência é obrigatório.")
+    private String nome;
+
+    private String categoria;
+
+    private String descricao;
+
+    public CompetenciaDTO() {}
+
+    // Getters / Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
+}
