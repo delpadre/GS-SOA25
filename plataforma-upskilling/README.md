@@ -49,69 +49,55 @@ cd GS-SOA25
 
 Execute a aplicação:
 
-bash
 mvn spring-boot:run
-Acesse os endpoints:
 
-API Base: http://localhost:8080
-
-📚 Swagger UI: http://localhost:8080/swagger-ui.html
-
-🗄️ H2 Console: http://localhost:8080/h2-console
-
-JDBC URL: jdbc:h2:mem:upskillingdb
-
-Username: sa
-
-Password: (vazio)
+- API Base: http://localhost:8080
+- Swagger UI: http://localhost:8080/swagger-ui.html
+- H2 Console: http://localhost:8080/h2-console
+- JDBC URL: jdbc:h2:mem:upskillingdb
+- Username: sa
+- Password: (vazio)
 
 Funcionalidades
-🛡️ Validações Implementadas
-Campos obrigatórios com mensagens customizadas
 
-Formato de email válido
+- Validações Implementadas
+- Campos obrigatórios com mensagens customizadas
+- Formato de email válido
+- Níveis válidos (INICIANTE, INTERMEDIARIO, AVANCADO)
+- Impedir matrícula duplicada na mesma trilha
 
-Níveis válidos (INICIANTE, INTERMEDIARIO, AVANCADO)
+Tratamento de Exceções
 
-Impedir matrícula duplicada na mesma trilha
+- 404 NOT FOUND - Recurso não encontrado
+- 422 UNPROCESSABLE ENTITY - Regra de negócio violada
+- 400 BAD REQUEST - Erro de validação
+- 500 INTERNAL SERVER ERROR - Erro interno
 
-🚨 Tratamento de Exceções
-404 NOT FOUND - Recurso não encontrado
+Migrações Flyway
 
-422 UNPROCESSABLE ENTITY - Regra de negócio violada
-
-400 BAD REQUEST - Erro de validação
-
-500 INTERNAL SERVER ERROR - Erro interno
-
-📊 Migrações Flyway
 O banco é automaticamente populado com:
 
-✅ Tabelas estruturadas
+- Tabelas estruturadas
+- Dados de teste iniciais
+- Relacionamentos configurados
 
-✅ Dados de teste iniciais
+Regras de Negócio
+ 
+ - Validação de Nível: Apenas níveis pré-definidos são aceitos
+ - Matrícula Única: Usuário não pode se matricular duas vezes na mesma trilha
+ - Data Automática: Data de cadastro e inscrição são geradas automaticamente
+ - Status Controlado: Matrículas com status (ATIVA, CONCLUIDA, CANCELADA)
 
-✅ Relacionamentos configurados
+Testando a API
 
-🎯 Regras de Negócio
-Validação de Nível: Apenas níveis pré-definidos são aceitos
-
-Matrícula Única: Usuário não pode se matricular duas vezes na mesma trilha
-
-Data Automática: Data de cadastro e inscrição são geradas automaticamente
-
-Status Controlado: Matrículas com status (ATIVA, CONCLUIDA, CANCELADA)
-
-🧪 Testando a API
-Via Swagger UI (Recomendado)
-Acesse: http://localhost:8080/swagger-ui.html
-
-Explore todos os endpoints
-
-Execute requisições diretamente pela interface
+Via Swagger UI
+- Acesse: http://localhost:8080/swagger-ui.html
+- Explore todos os endpoints
+- Execute requisições diretamente pela interface
 
 
 Estrutura
+
 src/main/java/com/example/upskilling/
 ├── controller/          # Controladores REST
 ├── service/            # Lógica de negócio
@@ -127,22 +113,19 @@ src/main/resources/
 
 
 Scripts de Migração
-V1__create_usuarios.sql - Tabela de usuários
 
-V2__create_trilhas.sql - Tabela de trilhas
+- V1__create_usuarios.sql - Tabela de usuários
+- V2__create_trilhas.sql - Tabela de trilhas
+- V3__create_matriculas.sql - Tabela de matrículas
+- V4__insert_test_data.sql - Dados iniciais
+- V5__add_status_column.sql - Coluna status
+- V6__add_carga_horaria_trilhas.sql - Coluna carga horária
 
-V3__create_matriculas.sql - Tabela de matrículas
-
-V4__insert_test_data.sql - Dados iniciais
-
-V5__add_status_column.sql - Coluna status
-
-V6__add_carga_horaria_trilhas.sql - Coluna carga horária
-
-Desenvolvedores
+Desenvolvedor
 Rafael Jorge Del Padre - RM 552765
 
 
 📄 Licença
 Este projeto é desenvolvido para fins educacionais como parte da Global Solution - O Futuro do Trabalho.
+
 
