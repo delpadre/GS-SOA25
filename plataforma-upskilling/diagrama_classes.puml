@@ -1,0 +1,33 @@
+@startuml
+class Usuario {
+  Long id
+  String nome
+  String email
+  String areaAtuacao
+  String nivelCarreira
+  LocalDate dataCadastro
+}
+class Trilha {
+  Long id
+  String nome
+  String descricao
+  String nivel
+  Integer cargaHoraria
+  String focoPrincipal
+}
+class Competencia {
+  Long id
+  String nome
+  String categoria
+  String descricao
+}
+class Matricula {
+  Long id
+  LocalDate dataInscricao
+  String status
+}
+
+Usuario "1" -- "*" Matricula
+Trilha "1" -- "*" Matricula
+Trilha "*" -- "*" Competencia : possui
+@enduml
